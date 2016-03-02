@@ -104,13 +104,6 @@ function toRunCommand (inspectObj, name) {
   rc = appendArray(rc, '-e', cfg.Env)
   if (cfg.Entrypoint) rc = appendJoinedArray(rc, '--entrypoint', cfg.Entrypoint, ' ')
 
-  // let networkset = inspectObj.NetworkSettings || {}
-  // if (networkset.Ports) {
-  //   rc = appendObjectKeys(rc, '-p', networkset.Ports, (ipPort) => {
-  //     return ipPort.HostIp ? ipPort.HostIp + ':' + ipPort.HostPort : ipPort.HostPort
-  //   })
-  // }
-
   rc = rc + ' ' + (cfg.Image || inspectObj.Image)
 
   if (cfg.Cmd) rc = appendJoinedArray(rc, null, cfg.Cmd, ' ')
@@ -121,7 +114,7 @@ function toRunCommand (inspectObj, name) {
 function appendJoinedArray (str, key, array, join) {
   if (!Array.isArray(array)) return str
   return append(str, key, array.join(join), (joined) => {
-    return '"' + joined + '"'
+    return key ? '"' + joined + '"' : joined
   })
 }
 
