@@ -80,7 +80,7 @@ function toRunCommand (inspectObj, name) {
       return ipPort.HostIp ? ipPort.HostIp + ':' + ipPort.HostPort : ipPort.HostPort
     })
   }
-  rc = appendArray(rc, '--link', hostcfg && hostcfg.Links, (link) => {
+  rc = appendArray(rc, '--link', hostcfg.Links, (link) => {
     link = link.split(':')
     if (link[0] && ~link[0].lastIndexOf('/')) link[0] = link[0].substring(link[0].lastIndexOf('/') + 1)
     if (link[1] && ~link[1].lastIndexOf('/')) link[1] = link[1].substring(link[1].lastIndexOf('/') + 1)
@@ -101,7 +101,9 @@ function toRunCommand (inspectObj, name) {
   if (cfg.ExposedPorts) {
     rc = appendObjectKeys(rc, '--expose', cfg.ExposedPorts)
   }
-  rc = appendArray(rc, '-e', cfg.Env)
+  rc = appendArray(rc, '-e', cfg.Env, (env) => {
+    return /\s/g.test(env) ? '"' + env + '"' : env
+  })
   if (cfg.Entrypoint) rc = appendJoinedArray(rc, '--entrypoint', cfg.Entrypoint, ' ')
 
   rc = rc + ' ' + (cfg.Image || inspectObj.Image)
