@@ -95,6 +95,7 @@ function toRunCommand (inspectObj, name) {
       return policy.Name === 'on-failure' ? policy.Name + ':' + policy.MaximumRetryCount : policy.Name
     })
   }
+  rc = appendArray(rc, '--add-host', hostcfg.ExtraHosts)
 
   let cfg = inspectObj.Config || {}
   if (cfg.Hostname) rc = append(rc, '-h', cfg.Hostname)
