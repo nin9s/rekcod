@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/nexdrew/rekcod/compare/v1.0.1...v2.0.0) (2016-11-07)
+
+
+### Features
+
+* accept container, file, or json ([#14](https://github.com/nexdrew/rekcod/issues/14)) ([17264f0](https://github.com/nexdrew/rekcod/commit/17264f0))
+
+
+### BREAKING CHANGES
+
+* no longer errors on empty arrays
+
+prefers file over container if identically named
+
+* moar tests, 100% coverage
+
+* moar docs
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/nexdrew/rekcod/compare/v1.0.0...v1.0.1) (2016-10-02)
 
