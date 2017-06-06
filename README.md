@@ -5,6 +5,7 @@
 [![Build Status](https://travis-ci.org/nexdrew/rekcod.svg?branch=master)](https://travis-ci.org/nexdrew/rekcod)
 [![Coverage Status](https://coveralls.io/repos/github/nexdrew/rekcod/badge.svg?branch=master)](https://coveralls.io/github/nexdrew/rekcod?branch=master)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
+[![Greenkeeper badge](https://badges.greenkeeper.io/nexdrew/rekcod.svg)](https://greenkeeper.io/)
 
 Reverse engineer a `docker run` command from an existing container (via `docker inspect`).
 
@@ -163,7 +164,7 @@ array.forEach((r) => {
 | `Config.Tty`                 | `-t`             |
 | `Config.OpenStdin`           | `-i`             |
 | `Config.Entrypoint`          | `--entrypoint`   |
-| `Config.Image || Image`      | image name or id |
+| `Config.Image` &#124;&#124; `Image` | image name or id |
 | `Config.Cmd`                 | command and args |
 
 Prior to version 0.2.0, `rekcod` always assumed `-d` for detached mode, but it now uses that only when all stdio options are not attached. I believe this is the correct behavior, but let me know if it causes you problems. A side effect of this is that the `-d` shows up much later in the `docker run` command than it used to, but it will still be there. ❤
