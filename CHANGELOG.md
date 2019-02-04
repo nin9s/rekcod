@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/nexdrew/rekcod/compare/v2.1.1...v2.2.0) (2019-02-04)
+
+
+### Features
+
+* add support for --runtime flag ([#37](https://github.com/nexdrew/rekcod/issues/37)) ([6e6e9dd](https://github.com/nexdrew/rekcod/commit/6e6e9dd))
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/nexdrew/rekcod/compare/v2.1.0...v2.1.1) (2018-04-07)
 
